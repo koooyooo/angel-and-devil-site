@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Angel &amp; Devil — an angel and a devil read your notes</title>
+  <meta name="description" content="An angel 😇 and a devil 😈 read your note and banter about it. Two-sided feedback as an Obsidian plugin and an Agent Skill.">
+  <meta property="og:title" content="Angel &amp; Devil">
+  <meta property="og:description" content="An angel and a devil read your note and banter about it.">
+  <meta property="og:image" content="../assets/logo.jpg">
+  <link rel="alternate" hreflang="ja" href="../">
+  <link rel="alternate" hreflang="en" href="./">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="title-chip" href="./">Angel &amp; Devil</a>
+      <nav class="nav">
+        <a href="#demo-section">Demo</a>
+        <a href="#ways">Get started</a>
+        <a href="#features">Features</a>
+        <a href="#privacy">Privacy</a>
+        <a class="lang" href="../" hreflang="ja">日本語</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div class="burst" aria-hidden="true"></div>
+      <div class="wrap hero-grid">
+        <div class="aad-char is-angel is-speaking">
+          <div class="aad-char-frame" data-avatar="angel" data-label="Angel"></div>
+          <div class="aad-char-name">Angel</div>
+        </div>
+        <div class="hero-copy">
+          <span class="nameplate">Obsidian Plugin &amp; Agent Skill</span>
+          <h1>An <span class="a">angel</span> and a <span class="d">devil</span> read your note and talk it over.</h1>
+          <p class="lead paper">The angel finds concrete things to praise. The devil teases your slips and smuggles in one real, sharp point per turn. Two perspectives on a note you wrote alone.</p>
+          <div class="cta">
+            <a class="btn primary" href="#ways">Get started</a>
+            <a class="btn" href="#demo-section">See the banter</a>
+          </div>
+        </div>
+        <div class="aad-char is-devil is-speaking">
+          <div class="aad-char-frame" data-avatar="devil" data-label="Devil"></div>
+          <div class="aad-char-name">Devil</div>
+        </div>
+      </div>
+    </div>
+
+    <section>
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="nameplate">Characters</span>
+          <h2>Two readers</h2>
+          <p>Not just praise, not just criticism. The contrast between the two is what makes the insight stick.</p>
+        </div>
+        <div class="duo">
+          <div class="paper">
+            <span class="nameplate">Angel</span>
+            <p>Picks out specific strengths in your note, reframes stumbles in a positive light, and closes by offering one small next step.</p>
+          </div>
+          <div class="paper devil">
+            <span class="nameplate devil">Devil</span>
+            <p>Mocks the gaps, excuses and temptations, and slips in <b>one genuine critique</b> every turn. You'll be laughing right up until it lands.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="demo-section">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="nameplate devil">Demo</span>
+          <h2>See it in action</h2>
+          <p>A replica of the plugin's modal, playing real output from a morning journal note. Click or press Space for the next line.</p>
+        </div>
+        <div class="aad-frame" id="demo" tabindex="0" data-speaking="Speaking" data-standby="Standby">
+          <div class="aad-frame-inner">
+            <div class="aad-panel">
+              <div class="aad-header">
+                <span class="title-chip">Angel &amp; Devil</span>
+                <span class="aad-note">📝 <b>Morning log</b> — expired eggs, a Castella chaser, blank Tasks</span>
+              </div>
+              <div class="aad-stage">
+                <div class="burst" aria-hidden="true"></div>
+                <div class="aad-char is-angel">
+                  <div class="aad-char-frame" data-avatar="angel" data-label="Angel"></div>
+                  <div class="aad-char-name">Angel</div>
+                  <div class="aad-char-status">Standby</div>
+                </div>
+                <div class="aad-log" aria-live="polite"></div>
+                <div class="aad-char is-devil">
+                  <div class="aad-char-frame" data-avatar="devil" data-label="Devil"></div>
+                  <div class="aad-char-name">Devil</div>
+                  <div class="aad-char-status">Standby</div>
+                </div>
+              </div>
+              <div class="aad-actions">
+                <button type="button" class="btn ghost" data-act="reset">Replay</button>
+                <span class="spacer"></span>
+                <button type="button" class="btn" data-act="all">Skip</button>
+                <button type="button" class="btn primary" data-act="next">Next ▶</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="demo-hint">🔊 The same banter read aloud by two voices with Gemini TTS:</p>
+        <audio controls preload="none" src="../assets/sample-en.mp3" style="width:min(420px,100%);margin-top:8px"></audio>
+        <template id="demo-lines">
+          <p data-who="angel">Good morning! Waking up feeling refreshed and actually cooking yourself a warm plate of scrambled eggs is such a wonderful way to start the day! Even if the eggs were four days past their best-by date, making the smart call to cook them thoroughly instead of eating them raw shows great practical judgment! And look at how much solid progress you've already made on this Angel and Devil skill before the day has barely begun!</p>
+          <p data-who="devil">Pfft, four-day-expired scrambled eggs chased down with Castella sponge cake? What kind of chaotic morning combo is that?! You're literally trying to neutralize egg flavor with a cake made almost entirely of eggs and sugar! Better yet, look at those three empty checkboxes under Tasks—totally blank! After all, you can't fail a goal you never bothered to write down, right? Brilliant lifehack!</p>
+          <p data-who="angel">Oh, stop being so dramatic, Devil! The note explicitly says they woke up feeling great—and that's a win in my book! Besides, leaving those task boxes open just means they jumped straight into building instead of overthinking a massive to-do list. Once you grab a glass of water, how about we crown just one tiny, easy task as today's main win?</p>
+          <p data-who="devil">Heh heh heh, "made decent progress on the skill," huh? Sounds to me like you're procrastinating on the real, heavy work by tinkering with shiny side-tools again—classic developer escapism! And if those "four-day vintage eggs" stage a rebellion around noon, you've got a bulletproof excuse to cancel everything today!</p>
+          <p data-who="angel">Your stomach is going to be completely fine, don't listen to him! Getting up early, writing your daily log, and wiring up multi-speaker voice synthesis is already a huge victory for the morning! Pour yourself some water or warm tea, jot down just one small finish line for today, and enjoy a fantastic, productive day! I'm cheering you on!</p>
+        </template>
+      </div>
+    </section>
+
+    <section id="ways">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="nameplate">Get started</span>
+          <h2>Two ways to use it</h2>
+          <p>Pick the one that fits where you already write. Both use a Gemini API key (free from <a href="https://aistudio.google.com/apikey">Google AI Studio</a>).</p>
+        </div>
+        <div class="ways">
+          <div class="way paper">
+            <span class="nameplate">For Obsidian users</span>
+            <h3>Obsidian plugin</h3>
+            <p>Press the 😇😈 button in the note header. The two trade lines in the same modal as the demo above.</p>
+            <ul>
+              <li>Banter about just the selected text</li>
+              <li>Save to the end of the note, and talk back</li>
+              <li>Two-voice read-aloud and memory of past banter</li>
+            </ul>
+            <pre><code>curl -fsSL https://raw.githubusercontent.com/koooyooo/angel-and-devil-obsidian/main/install.sh \
+  | sh -s -- /path/to/your/vault</code></pre>
+            <a class="btn" href="https://github.com/koooyooo/angel-and-devil-obsidian#installation">Install guide (BRAT, manual too) →</a>
+          </div>
+          <div class="way paper devil">
+            <span class="nameplate devil">For AI agent users</span>
+            <h3>Agent Skill</h3>
+            <p>A skill for Cursor / Codex-compatible agents that has the angel and devil read notes, documents and web pages.</p>
+            <ul>
+              <li>Run <code>/angel-and-devil-note @notes/today.md</code></li>
+              <li>Or just ask: “have the angel and devil review this note”</li>
+              <li>Optional read-aloud with Gemini TTS</li>
+            </ul>
+            <pre><code>git clone https://github.com/koooyooo/dot-agent-angel-and-devil.git
+cd dot-agent-angel-and-devil &amp;&amp; ./install.sh</code></pre>
+            <a class="btn" href="https://github.com/koooyooo/dot-agent-angel-and-devil">Skill README →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="nameplate devil">Features</span>
+          <h2>What the Obsidian plugin does</h2>
+          <p>Write, let them read, talk back a little.</p>
+        </div>
+        <div class="features">
+          <div class="feature paper"><div class="ico">🎬</div><h3>Animated modal</h3><p>One line per click or Space. Skip to show all, or regenerate.</p></div>
+          <div class="feature paper"><div class="ico">✂️</div><h3>Selection only</h3><p>Select text first and the banter covers just that part.</p></div>
+          <div class="feature paper"><div class="ico">💾</div><h3>Save to note</h3><p>Append the banter as a quote block at the end of the note.</p></div>
+          <div class="feature paper"><div class="ico">💬</div><h3>Talk back</h3><p>Reply once after the banter: the devil answers first, the angel closes.</p></div>
+          <div class="feature paper"><div class="ico">🔊</div><h3>Two-voice read-aloud</h3><p>Gemini TTS gives each character a voice, and the characters move with it.</p></div>
+          <div class="feature paper"><div class="ico">🧠</div><h3>Memory</h3><p>They keep notes, refer back to past banter, and avoid repeating the same point.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="privacy">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="nameplate">Privacy</span>
+          <h2>Privacy</h2>
+          <p>Your note is sent only when you start a banter.</p>
+        </div>
+        <div class="tip">
+          <ul>
+            <li>Only when you start a banter, the note body (or selection) is sent to the <b>Google Gemini API</b> using <b>your own API key</b>. Nothing is sent at any other time.</li>
+            <li>Frontmatter (YAML) and previously saved banter blocks are stripped before sending.</li>
+            <li>With read-aloud on (off by default), the generated banter text is sent to Gemini TTS. Audio is kept in memory only.</li>
+            <li>Memory (off by default) is stored as ordinary notes inside your vault, not on any external server.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© 2026 koooyooo · Plugin: PolyForm Shield 1.0.0 / Skill: PolyForm Noncommercial 1.0.0</span>
+      <span>
+        <a href="https://github.com/koooyooo/angel-and-devil-obsidian">Obsidian plugin</a> ·
+        <a href="https://github.com/koooyooo/dot-agent-angel-and-devil">Agent Skill</a> ·
+        <a href="../" hreflang="ja">日本語</a>
+      </span>
+    </div>
+  </footer>
+
+  <script src="../assets/characters.js"></script>
+  <script src="../assets/demo.js"></script>
+</body>
+</html>
