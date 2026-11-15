@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Getting started — Angel &amp; Devil</title>
+  <meta name="description" content="Install the Angel &amp; Devil Obsidian plugin, set up a Gemini API key, and run your first banter.">
+  <link rel="alternate" hreflang="ja" href="../getting-started.html">
+  <link rel="alternate" hreflang="en" href="getting-started.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="title-chip" href="./">Angel &amp; Devil</a>
+      <nav class="nav">
+        <a href="./">Home</a>
+        <a href="getting-started.html" aria-current="page">Getting started</a>
+        <a href="legal.html">Disclaimer &amp; privacy</a>
+        <a class="lang" href="../getting-started.html" hreflang="ja">日本語</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="page-head">
+      <span class="nameplate">Getting started</span>
+      <h1>Getting started</h1>
+      <p>From installing the Obsidian plugin and setting up a Gemini API key to your first banter. It takes about ten minutes.</p>
+      <ul class="toc">
+        <li><a href="#requirements">Requirements</a></li>
+        <li><a href="#install">Install</a></li>
+        <li><a href="#api-key">API key</a></li>
+        <li><a href="#first-banter">First banter</a></li>
+        <li><a href="#tts">Read aloud &amp; costs</a></li>
+        <li><a href="#troubleshooting">Troubleshooting</a></li>
+        <li><a href="#update">Update &amp; remove</a></li>
+      </ul>
+    </div>
+
+    <div class="doc">
+      <section id="requirements">
+        <h2>Requirements</h2>
+        <ul>
+          <li><b>Obsidian 1.8.7 or later</b> (Windows / macOS / Linux / iOS / Android). Storing the API key in Obsidian's secret storage needs 1.11.4 or later.</li>
+          <li><b>A Google account</b> (to create a Gemini API key).</li>
+        </ul>
+        <div class="tip">
+          <p>Angel &amp; Devil is not in Obsidian's community plugin directory yet, so searching for it in Obsidian's settings will not find it. Use one of the options below.</p>
+        </div>
+      </section>
+
+      <section id="install">
+        <h2>Install</h2>
+
+        <div class="paper" id="install-brat">
+          <span class="nameplate">Recommended</span>
+          <h3>Option 1: BRAT</h3>
+          <p>BRAT is a community plugin that installs beta plugins from GitHub and keeps them up to date. It works entirely inside Obsidian, on <b>Windows, macOS, Linux, iOS, and Android</b>.</p>
+          <ol>
+            <li>Open <span class="ui">Settings</span> → <span class="ui">Community plugins</span> in Obsidian. If <b>Restricted mode</b> is on, turn it off.</li>
+            <li>Press <span class="ui">Browse</span>, search for “<b>BRAT</b>”, install it, and press <span class="ui">Enable</span>.</li>
+            <li>Open <span class="ui">Settings</span> → <span class="ui">BRAT</span> → <span class="ui">Add Beta plugin</span>.</li>
+            <li>Enter <code>koooyooo/angel-and-devil-obsidian</code> as the repository and add it (the latest version is fine).</li>
+            <li>Turn on <b>Angel &amp; Devil</b> under <span class="ui">Settings</span> → <span class="ui">Community plugins</span>.</li>
+          </ol>
+          <p>BRAT takes care of updates from then on.</p>
+        </div>
+
+        <div class="paper devil" id="install-manual">
+          <span class="nameplate devil">Without BRAT</span>
+          <h3>Option 2: Manual install</h3>
+          <p>For people who would rather not install another plugin (BRAT). Do this on a computer (Windows / macOS / Linux). To update, repeat the same steps for each release.</p>
+          <ol>
+            <li>Download <code>angel-and-devil.zip</code> from the <a href="https://github.com/koooyooo/angel-and-devil-obsidian/releases/latest">latest release</a>.</li>
+            <li>Extract the zip.
+              <ul>
+                <li>Windows: right-click the zip → <span class="ui">Extract All</span></li>
+                <li>macOS: double-click the zip</li>
+              </ul>
+              You should get a folder named <code>angel-and-devil</code> with three files in it: <code>main.js</code>, <code>manifest.json</code>, and <code>styles.css</code>.</li>
+            <li>In Obsidian, open <span class="ui">Settings</span> → <span class="ui">Community plugins</span> and press the <b>folder icon</b> next to “Installed plugins”. This opens the plugins folder (<code>&lt;vault&gt;/.obsidian/plugins/</code>).</li>
+            <li>Move the whole <code>angel-and-devil</code> folder into it. The files should end up here:
+              <pre><code>&lt;vault&gt;/.obsidian/plugins/angel-and-devil/main.js
+&lt;vault&gt;/.obsidian/plugins/angel-and-devil/manifest.json
+&lt;vault&gt;/.obsidian/plugins/angel-and-devil/styles.css</code></pre>
+            </li>
+            <li>Back in Obsidian, press the <b>reload icon</b> next to “Installed plugins”, then turn on <b>Angel &amp; Devil</b> (turn off Restricted mode if it is on).</li>
+          </ol>
+          <p><b>Can't find the folder?</b> <code>.obsidian</code> starts with a dot, so macOS Finder hides it. Press <code>Cmd</code> + <code>Shift</code> + <code>.</code> in Finder to show it. Windows File Explorer shows it as usual. If there is no <code>plugins</code> folder yet, you can create it yourself.</p>
+        </div>
+
+        <details class="paper" id="install-script">
+          <summary>Option 3: Install script (macOS / Linux, for developers)</summary>
+          <p>For people comfortable with a terminal. It downloads the three files from the latest release straight into your vault; your settings (<code>data.json</code>) are kept on updates. <b>It does not work on Windows</b> (use option 1 or 2).</p>
+          <pre><code>curl -fsSL https://raw.githubusercontent.com/koooyooo/angel-and-devil-obsidian/main/install.sh \
+  | sh -s -- /path/to/your/vault</code></pre>
+          <p>To pick a version, pass it as the second argument (for example <code>… | sh -s -- /path/to/your/vault 0.2.2</code>). Then turn on <b>Angel &amp; Devil</b> under <span class="ui">Settings</span> → <span class="ui">Community plugins</span>.</p>
+        </details>
+      </section>
+
+      <section id="api-key">
+        <h2>Set up a Gemini API key</h2>
+        <p>The banter is written by Google's Gemini API, called with <b>your own Gemini API key</b>. Nothing goes through a server run by the author.</p>
+        <ol>
+          <li>Open the <a href="https://aistudio.google.com/apikey">API key page in Google AI Studio</a>, sign in with your Google account, and press <span class="ui">Create API key</span>.</li>
+          <li>In Obsidian, open <span class="ui">Settings</span> → <span class="ui">Angel &amp; Devil</span>, paste the key into <b>Gemini API key</b>, and press <span class="ui">Save</span>.</li>
+          <li>Press <span class="ui">Check key</span>. When you see “The key works.”, you are ready.</li>
+        </ol>
+        <div class="tip">
+          <p><b>Recommended for using the key safely</b></p>
+          <ul>
+            <li>Create a <b>dedicated key</b> for this plugin (if it leaks, you can delete just that key).</li>
+            <li>In Google Cloud Console → <a href="https://console.cloud.google.com/apis/credentials">Credentials</a>, restrict the key to the <b>Generative Language API</b> only.</li>
+            <li>Set a <b>monthly spend cap</b> in <a href="https://aistudio.google.com/spend">Google AI Studio → Spend</a> and a <b>budget alert</b> in <a href="https://console.cloud.google.com/billing/budgets">Cloud Billing → Budgets &amp; alerts</a>.</li>
+          </ul>
+          <p>Where the key is stored, and whether other plugins can read it, is explained in <a href="legal.html#api-key">Disclaimer &amp; privacy</a>.</p>
+        </div>
+      </section>
+
+      <section id="first-banter">
+        <h2>Your first banter</h2>
+        <ol>
+          <li>Open the note you want them to read: a daily log, book notes, anything.</li>
+          <li>Press the <b>😇😈 button</b> in the note header (top right). You can also use the ribbon icon on the left or the command “<b>Angel &amp; Devil: Start banter</b>” in the command palette.</li>
+          <li>Click, tap, or press Space to advance one line at a time. <span class="ui">Skip</span> shows everything, <span class="ui">Again</span> regenerates, and <span class="ui">Save to end of note</span> keeps it in the note.</li>
+        </ol>
+        <p>Select some text first to have them read only that part. After the banter you can also <b>say one thing back</b> in the box below it.</p>
+      </section>
+
+      <section id="tts">
+        <h2>Read aloud &amp; costs (optional)</h2>
+        <p>Turn on <b>Enable read aloud</b> under <span class="ui">Settings</span> → <span class="ui">Angel &amp; Devil</span>, and the angel and devil read the banter in two different voices.</p>
+        <ul>
+          <li>Generating audio (Gemini TTS) can <b>cost more</b> than text. Check <a href="https://aistudio.google.com/docs/pricing">Google's pricing</a>.</li>
+          <li>That is why you are asked before every read-aloud (<b>Confirm every time</b>, on by default). Replaying the same banter uses a cache and costs nothing.</li>
+          <li>The banter itself (text) may also be billed once you go beyond Google's free tier. Charges go to your Google account.</li>
+        </ul>
+      </section>
+
+      <section id="troubleshooting">
+        <h2>Troubleshooting</h2>
+        <h3>Angel &amp; Devil does not show up in the community plugins list</h3>
+        <ul>
+          <li>Check that the folder is not nested one level too deep (<code>plugins/angel-and-devil/angel-and-devil/main.js</code> will not load).</li>
+          <li>Check that <code>manifest.json</code> is in the folder, then press the reload icon next to “Installed plugins” or restart Obsidian.</li>
+          <li>Check that you used the right vault (each vault has its own <code>.obsidian</code>).</li>
+        </ul>
+        <h3>I can't find the 😇😈 button</h3>
+        <ul>
+          <li>Make sure a Markdown note is open. With the plugin on, you can also start from the ribbon icon or the command palette.</li>
+        </ul>
+        <h3>“The API key looks invalid”</h3>
+        <ul>
+          <li>Check for extra spaces around the key, paste it again, then press <span class="ui">Save</span> → <span class="ui">Check key</span>.</li>
+          <li>If you restricted the key, make sure the <b>Generative Language API</b> is allowed.</li>
+        </ul>
+        <h3>“Usage limit reached”</h3>
+        <ul>
+          <li>You hit the free tier's rate limit or your own spend cap. Wait a moment, or check <a href="https://aistudio.google.com/usage">Google AI Studio → Usage</a>.</li>
+        </ul>
+        <h3>I want it on my phone</h3>
+        <ul>
+          <li>A manual install is hardly possible on mobile. Use <a href="#install-brat">option 1 (BRAT)</a>.</li>
+        </ul>
+        <p>Still stuck? Let us know in <a href="https://github.com/koooyooo/angel-and-devil-obsidian/issues">GitHub Issues</a> (never paste your API key).</p>
+      </section>
+
+      <section id="update">
+        <h2>Update &amp; remove</h2>
+        <ul>
+          <li><b>Installed with BRAT:</b> updates are automatic.</li>
+          <li><b>Installed manually:</b> overwrite the three files with the new release, then turn the plugin off and on again. Your settings (<code>data.json</code>) are kept.</li>
+          <li><b>Remove:</b> press <span class="ui">Uninstall</span> under <span class="ui">Settings</span> → <span class="ui">Community plugins</span>. To remove the API key too, press <span class="ui">Delete</span> under <span class="ui">Settings</span> → <span class="ui">Angel &amp; Devil</span> first. If you used memory, its folder (default <code>_angel_and_devil/</code>) stays in your vault as ordinary notes; delete it by hand if you no longer need it.</li>
+        </ul>
+        <div class="next">
+          <a class="btn primary" href="legal.html">Read the disclaimer &amp; privacy</a>
+          <a class="btn" href="./#demo-section">Watch the demo</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© 2026 koooyooo · Plugin &amp; Skill: PolyForm Shield 1.0.0</span>
+      <span>
+        <a href="getting-started.html">Getting started</a> ·
+        <a href="legal.html">Disclaimer &amp; privacy</a> ·
+        <a href="https://github.com/koooyooo/angel-and-devil-obsidian">GitHub</a> ·
+        <a href="../getting-started.html" hreflang="ja">日本語</a>
+      </span>
+    </div>
+  </footer>
+</body>
+</html>
