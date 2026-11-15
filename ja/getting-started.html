@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>はじめかた — Angel &amp; Devil</title>
+  <meta name="description" content="Angel &amp; Devil の Obsidian プラグインのインストール、Gemini API キーの準備、はじめての掛け合いまでの手順。">
+  <link rel="alternate" hreflang="en" href="../en/getting-started.html">
+  <link rel="alternate" hreflang="ja" href="getting-started.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="title-chip" href="./">Angel &amp; Devil</a>
+      <nav class="nav">
+        <a href="./">トップ</a>
+        <a href="getting-started.html" aria-current="page">はじめかた</a>
+        <a href="legal.html">免責事項とプライバシー</a>
+        <a class="lang" href="../en/getting-started.html" hreflang="en">English</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="page-head">
+      <span class="nameplate">Getting started</span>
+      <h1>はじめかた</h1>
+      <p>Obsidian プラグインを入れて、Gemini API キーを設定し、はじめての掛け合いを見るまでの手順です。10 分ほどで終わります。</p>
+      <ul class="toc">
+        <li><a href="#requirements">必要なもの</a></li>
+        <li><a href="#install">インストール</a></li>
+        <li><a href="#api-key">API キー</a></li>
+        <li><a href="#first-banter">はじめての掛け合い</a></li>
+        <li><a href="#recommended">おすすめの設定</a></li>
+        <li><a href="#troubleshooting">うまくいかないとき</a></li>
+        <li><a href="#update">更新と削除</a></li>
+      </ul>
+    </div>
+
+    <div class="doc">
+      <section id="requirements">
+        <h2>必要なもの</h2>
+        <ul>
+          <li><b>Obsidian 1.8.7 以降</b>（Windows / macOS / Linux / iOS / Android）。API キーを Obsidian のシークレットストレージに保存するには 1.11.4 以降が必要です。</li>
+          <li><b>Google アカウント</b>（Gemini API キーを作るため）。</li>
+        </ul>
+        <div class="tip">
+          <p>Angel &amp; Devil は、まだ Obsidian のコミュニティプラグイン一覧には載っていません。そのため、Obsidian の設定から名前で検索しても出てきません。下のどちらかの方法で入れてください。</p>
+        </div>
+      </section>
+
+      <section id="install">
+        <h2>インストール</h2>
+
+        <div class="paper" id="install-brat">
+          <span class="nameplate">おすすめ</span>
+          <h3>方法 1: BRAT を使う</h3>
+          <p>BRAT は、ベータ版のプラグインを GitHub から入れて自動で更新してくれるコミュニティプラグインです。<b>Windows・macOS・Linux・iOS・Android のどれでも</b>、Obsidian の中だけで完結します。</p>
+          <ol>
+            <li>Obsidian の <span class="ui">設定</span> → <span class="ui">コミュニティプラグイン</span> を開きます。<b>制限モード</b>がオンなら、オフにします。</li>
+            <li><span class="ui">閲覧</span> を押し、「<b>BRAT</b>」で検索してインストールし、<span class="ui">有効化</span> します。</li>
+            <li><span class="ui">設定</span> → <span class="ui">BRAT</span> → <span class="ui">Add Beta plugin</span> を開きます。</li>
+            <li>リポジトリに <code>koooyooo/angel-and-devil-obsidian</code> と入力して追加します（バージョンは最新のままで構いません）。</li>
+            <li><span class="ui">設定</span> → <span class="ui">コミュニティプラグイン</span> で <b>Angel &amp; Devil</b> をオンにします。</li>
+          </ol>
+          <p>以後の更新は BRAT が自動で行います。</p>
+        </div>
+
+        <div class="paper devil" id="install-manual">
+          <span class="nameplate devil">BRAT を使わない場合</span>
+          <h3>方法 2: 手動で入れる</h3>
+          <p>ほかのプラグイン（BRAT）を入れたくない人向けです。パソコン（Windows / macOS / Linux）で行います。更新はリリースのたびに同じ手順でやり直します。</p>
+          <ol>
+            <li><a href="https://github.com/koooyooo/angel-and-devil-obsidian/releases/latest">最新のリリース</a>から <code>angel-and-devil.zip</code> をダウンロードします。</li>
+            <li>zip を展開します。
+              <ul>
+                <li>Windows: zip を右クリック → <span class="ui">すべて展開</span></li>
+                <li>macOS: zip をダブルクリック</li>
+              </ul>
+              <code>angel-and-devil</code> というフォルダができ、その中に <code>main.js</code>・<code>manifest.json</code>・<code>styles.css</code> の 3 つが入っていれば OK です。</li>
+            <li>Obsidian の <span class="ui">設定</span> → <span class="ui">コミュニティプラグイン</span> を開き、「インストール済みプラグイン」の横にある<b>フォルダのアイコン</b>を押します。プラグインのフォルダ（<code>&lt;Vault&gt;/.obsidian/plugins/</code>）が開きます。</li>
+            <li>そこへ <code>angel-and-devil</code> フォルダごと移します。次の形になれば正しい置き場所です。
+              <pre><code>&lt;Vault&gt;/.obsidian/plugins/angel-and-devil/main.js
+&lt;Vault&gt;/.obsidian/plugins/angel-and-devil/manifest.json
+&lt;Vault&gt;/.obsidian/plugins/angel-and-devil/styles.css</code></pre>
+            </li>
+            <li>Obsidian に戻り、「インストール済みプラグイン」の横の<b>再読み込みのアイコン</b>を押してから、<b>Angel &amp; Devil</b> をオンにします（制限モードがオンならオフにします）。</li>
+          </ol>
+          <p><b>フォルダが見つからないとき:</b> <code>.obsidian</code> は名前が「.」で始まるため、macOS の Finder では隠れています。Finder で <code>Cmd</code> + <code>Shift</code> + <code>.</code> を押すと表示されます。Windows のエクスプローラーでは通常どおり見えます。<code>plugins</code> フォルダがまだなければ、自分で作って構いません。</p>
+        </div>
+
+        <details class="paper" id="install-script">
+          <summary>方法 3: インストールスクリプト（macOS / Linux、開発者向け）</summary>
+          <p>ターミナルに慣れている人向けです。最新のリリースから 3 つのファイルを Vault に直接ダウンロードします。設定（<code>data.json</code>）は更新しても残ります。<b>Windows では動きません</b>（方法 1 か 2 を使ってください）。</p>
+          <pre><code>curl -fsSL https://raw.githubusercontent.com/koooyooo/angel-and-devil-obsidian/main/install.sh \
+  | sh -s -- /path/to/your/vault</code></pre>
+          <p>バージョンを指定するときは、2 つめの引数に渡します（例: <code>… | sh -s -- /path/to/your/vault 0.2.2</code>）。実行したあと、<span class="ui">設定</span> → <span class="ui">コミュニティプラグイン</span> で <b>Angel &amp; Devil</b> をオンにします。</p>
+        </details>
+      </section>
+
+      <section id="api-key">
+        <h2>Gemini API キーを用意する</h2>
+        <p>掛け合いは、<b>あなた自身の Gemini API キー</b>で Google の Gemini API を呼び出して作ります。作者のサーバーは通りません。</p>
+        <ol>
+          <li><a href="https://aistudio.google.com/apikey">Google AI Studio の API キーのページ</a>を開き、Google アカウントでログインして <span class="ui">Create API key</span> を押します。</li>
+          <li>Obsidian の <span class="ui">設定</span> → <span class="ui">Angel &amp; Devil</span> を開き、<b>Gemini API キー</b>にキーを貼り付けて <span class="ui">保存</span> を押します。</li>
+          <li><span class="ui">キーを確認</span> を押し、「キーを確認できました。」と出れば準備完了です。</li>
+        </ol>
+        <div class="tip">
+          <p><b>キーを安全に使うためにおすすめの設定</b></p>
+          <ul>
+            <li>このプラグイン<b>専用のキー</b>を作る（漏れたときに、そのキーだけを消せます）。</li>
+            <li>Google Cloud Console の<a href="https://console.cloud.google.com/apis/credentials">認証情報</a>で、キーの使い道を <b>Generative Language API</b> だけに絞る。</li>
+            <li><a href="https://aistudio.google.com/spend">Google AI Studio → Spend</a> で<b>月の利用上限</b>を、<a href="https://console.cloud.google.com/billing/budgets">Cloud Billing → 予算とアラート</a>で<b>予算アラート</b>を設定する。</li>
+          </ul>
+          <p>キーの保存場所や、ほかのプラグインから読めるかどうかは<a href="legal.html#api-key">免責事項とプライバシー</a>にまとめています。</p>
+        </div>
+      </section>
+
+      <section id="first-banter">
+        <h2>はじめての掛け合い</h2>
+        <ol>
+          <li>掛け合わせたいノートを開きます。日記でも、読書メモでも構いません。</li>
+          <li>ノートの右上（ヘッダー）にある <b>😇😈 ボタン</b>を押します。左のリボンのアイコンや、コマンドパレットの「<b>Angel &amp; Devil: 掛け合いを開始</b>」からも始められます。</li>
+          <li>クリック・タップ・Space キーで 1 セリフずつ進みます。<span class="ui">スキップ</span> で全部表示、<span class="ui">もう一度</span> で作り直し、<span class="ui">ノート末尾に保存する</span> でノートに残せます。</li>
+        </ol>
+        <p>テキストを選んでから始めると、選んだ部分だけを読ませられます。掛け合いのあとには、下の欄から<b>ひとこと返す</b>こともできます。</p>
+      </section>
+
+      <section id="recommended">
+        <h2>おすすめの設定</h2>
+        <p>どちらも初期値はオフですが、<b>オンにするのがおすすめ</b>です。<span class="ui">設定</span> → <span class="ui">Angel &amp; Devil</span> で切り替えます。</p>
+
+        <h3 id="memory">掛け合いを記憶する（推奨）</h3>
+        <p>掛け合いのたびに、天使と悪魔がそれぞれメモを残し、あなたへの印象を書き直します。次からはそれを踏まえて話すので、前に話したことに触れたり、同じ指摘を繰り返さなくなったりします。続けて使うほど面白くなる、いちばんのおすすめです。</p>
+        <ul>
+          <li>メモと印象は掛け合いと<b>同じリクエスト</b>で作られるので、Gemini の呼び出しは増えません（送る文章が少し長くなります）。</li>
+          <li>オンのあいだは、直近のメモ（最大 10 件）と印象もノートと一緒に Gemini API に送られます。</li>
+          <li>記憶は Vault 内のフォルダ（初期値 <code>_angel_and_devil/</code>）に普通のノートとして残ります。読んだり、直したり、消したりできます。</li>
+        </ul>
+
+        <h3 id="tts">読み上げを有効にする（推奨・料金に注意）</h3>
+        <p>天使と悪魔が別々の声で掛け合いを読み上げ、声に合わせてキャラクターが動きます。掛け合いのモーダルに 🔊 ボタンが出ます。</p>
+        <ul>
+          <li>音声の生成（Gemini TTS）は、テキストより<b>料金が高くなる</b>ことがあります。料金は <a href="https://aistudio.google.com/docs/pricing">Google の料金表</a>で確認してください。</li>
+          <li>そのため、読み上げのたびに確認が出ます（<b>毎回確認する</b>、初期値オン）。同じ掛け合いをもう一度再生するときはキャッシュを使うので、料金はかかりません。</li>
+          <li>掛け合いそのもの（テキスト）も、Google 側の無料枠を超えると料金がかかることがあります。料金はあなたの Google アカウントに請求されます。</li>
+        </ul>
+      </section>
+
+      <section id="troubleshooting">
+        <h2>うまくいかないとき</h2>
+        <h3>コミュニティプラグインの一覧に Angel &amp; Devil が出てこない</h3>
+        <ul>
+          <li>フォルダが 1 段深くなっていないか確認してください（<code>plugins/angel-and-devil/angel-and-devil/main.js</code> になっていると読み込まれません）。</li>
+          <li>フォルダの中に <code>manifest.json</code> があるか確認し、「インストール済みプラグイン」の再読み込みアイコンを押すか、Obsidian を再起動してください。</li>
+          <li>別の Vault のフォルダに入れていないか確認してください（Vault ごとに <code>.obsidian</code> があります）。</li>
+        </ul>
+        <h3>😇😈 ボタンが見当たらない</h3>
+        <ul>
+          <li>Markdown のノートを開いているか確認してください。プラグインがオンになっていれば、リボンのアイコンやコマンドパレットからも始められます。</li>
+        </ul>
+        <h3>「API キーが正しくないようです」と出る</h3>
+        <ul>
+          <li>キーの前後に余計な空白が入っていないか確認し、貼り付け直して <span class="ui">保存</span> → <span class="ui">キーを確認</span> を押してください。</li>
+          <li>キーの使い道を絞っている場合は、<b>Generative Language API</b> が許可されているか確認してください。</li>
+        </ul>
+        <h3>「利用の上限に達しました」と出る</h3>
+        <ul>
+          <li>無料枠の回数制限か、設定した利用上限に達しています。少し待つか、<a href="https://aistudio.google.com/usage">Google AI Studio → Usage</a> で状況を確認してください。</li>
+        </ul>
+        <h3>スマートフォンで入れたい</h3>
+        <ul>
+          <li>モバイルでは手動のインストールはほぼできません。<a href="#install-brat">方法 1（BRAT）</a>を使ってください。</li>
+        </ul>
+        <p>解決しないときは、<a href="https://github.com/koooyooo/angel-and-devil-obsidian/issues">GitHub の Issues</a> で教えてください（API キーは貼らないでください）。</p>
+      </section>
+
+      <section id="update">
+        <h2>更新と削除</h2>
+        <ul>
+          <li><b>BRAT で入れた場合:</b> 自動で更新されます。</li>
+          <li><b>手動で入れた場合:</b> 新しいリリースの 3 つのファイルで上書きし、プラグインを一度オフにしてからオンにします。設定（<code>data.json</code>）はそのまま残ります。</li>
+          <li><b>削除:</b> <span class="ui">設定</span> → <span class="ui">コミュニティプラグイン</span> で <span class="ui">アンインストール</span> を押します。API キーも消したいときは、先に <span class="ui">設定</span> → <span class="ui">Angel &amp; Devil</span> で <span class="ui">削除</span> を押してください。記憶をオンにしていた場合、記憶のフォルダ（初期値 <code>_angel_and_devil/</code>）は普通のノートとして Vault に残るので、不要なら手で消します。</li>
+        </ul>
+        <div class="next">
+          <a class="btn primary" href="legal.html">免責事項とプライバシーを読む</a>
+          <a class="btn" href="./#demo-section">掛け合いのデモを見る</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© 2026 koooyooo · プラグイン・スキルとも PolyForm Shield 1.0.0</span>
+      <span>
+        <a href="getting-started.html">はじめかた</a> ·
+        <a href="legal.html">免責事項とプライバシー</a> ·
+        <a href="https://github.com/koooyooo/angel-and-devil-obsidian">GitHub</a> ·
+        <a href="../en/getting-started.html" hreflang="en">English</a>
+      </span>
+    </div>
+  </footer>
+</body>
+</html>

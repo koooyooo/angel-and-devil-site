@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Getting started — Angel &amp; Devil</title>
   <meta name="description" content="Install the Angel &amp; Devil Obsidian plugin, set up a Gemini API key, and run your first banter.">
-  <link rel="alternate" hreflang="ja" href="../getting-started.html">
+  <link rel="alternate" hreflang="ja" href="../ja/getting-started.html">
   <link rel="alternate" hreflang="en" href="getting-started.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +20,7 @@
         <a href="./">Home</a>
         <a href="getting-started.html" aria-current="page">Getting started</a>
         <a href="legal.html">Disclaimer &amp; privacy</a>
-        <a class="lang" href="../getting-started.html" hreflang="ja">日本語</a>
+        <a class="lang" href="../ja/getting-started.html" hreflang="ja">日本語</a>
       </nav>
     </div>
   </header>
@@ -35,7 +35,7 @@
         <li><a href="#install">Install</a></li>
         <li><a href="#api-key">API key</a></li>
         <li><a href="#first-banter">First banter</a></li>
-        <li><a href="#tts">Read aloud &amp; costs</a></li>
+        <li><a href="#recommended">Recommended settings</a></li>
         <li><a href="#troubleshooting">Troubleshooting</a></li>
         <li><a href="#update">Update &amp; remove</a></li>
       </ul>
@@ -131,9 +131,20 @@
         <p>Select some text first to have them read only that part. After the banter you can also <b>say one thing back</b> in the box below it.</p>
       </section>
 
-      <section id="tts">
-        <h2>Read aloud &amp; costs (optional)</h2>
-        <p>Turn on <b>Enable read aloud</b> under <span class="ui">Settings</span> → <span class="ui">Angel &amp; Devil</span>, and the angel and devil read the banter in two different voices.</p>
+      <section id="recommended">
+        <h2>Recommended settings</h2>
+        <p>Both are off by default, but <b>we recommend turning them on</b>. You find them under <span class="ui">Settings</span> → <span class="ui">Angel &amp; Devil</span>.</p>
+
+        <h3 id="memory">Remember banters (recommended)</h3>
+        <p>After every banter, the angel and devil each leave a memo and rewrite their impression of you. Later banters build on them: the pair can refer back to earlier talks and stops repeating a point it has already made. It gets better the longer you use it — this is the one we recommend most.</p>
+        <ul>
+          <li>Memos and impressions come back in the <b>same request</b> as the banter, so there are no extra Gemini calls (the request just gets a little longer).</li>
+          <li>While it is on, the latest memos (up to 10) and the impressions are sent to the Gemini API together with your note.</li>
+          <li>Memory is kept as ordinary notes in a vault folder (default <code>_angel_and_devil/</code>). You can read, edit, or delete them.</li>
+        </ul>
+
+        <h3 id="tts">Enable read aloud (recommended — mind the cost)</h3>
+        <p>The angel and devil read the banter in two different voices, and the characters move along with them. A 🔊 button appears in the banter window.</p>
         <ul>
           <li>Generating audio (Gemini TTS) can <b>cost more</b> than text. Check <a href="https://aistudio.google.com/docs/pricing">Google's pricing</a>.</li>
           <li>That is why you are asked before every read-aloud (<b>Confirm every time</b>, on by default). Replaying the same banter uses a cache and costs nothing.</li>
@@ -191,7 +202,7 @@
         <a href="getting-started.html">Getting started</a> ·
         <a href="legal.html">Disclaimer &amp; privacy</a> ·
         <a href="https://github.com/koooyooo/angel-and-devil-obsidian">GitHub</a> ·
-        <a href="../getting-started.html" hreflang="ja">日本語</a>
+        <a href="../ja/getting-started.html" hreflang="ja">日本語</a>
       </span>
     </div>
   </footer>
