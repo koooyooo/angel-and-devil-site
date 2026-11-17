@@ -1,4 +1,4 @@
-// Character symbols, ported from the plugin (angel-and-devil-obsidian/src/ui/characters.ts) so the site
+// Character symbols, ported from the plugin (angel-and-devil-obsidian/src/characters/<id>/avatar.ts and src/ui/symbol.ts) so the site
 // shows the same art: Angel = halo + feather wings + star, Devil = horns + dark wings + diamond.
 // Fills every <div data-avatar="angel|devil" data-label="..."> on the page.
 (function () {
